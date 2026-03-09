@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Transporte - Turismo ES{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 style="margin: 20px 0;">Linhas e Pontos de Transporte</h2>
+    <div class="grid">
+        {% for ponto in pontos %}
+        <div class="card">
+            <div class="card-body">
+                <h3>{{ ponto.nome }}</h3>
+                <p><strong>Linhas:</strong> {{ ponto.linha }}</p>
+                <p><strong>Local:</strong> {{ ponto.endereco }}</p>
+                <small><i>{{ ponto.observacoes }}</i></small>
+            </div>
+            <div class="estrada">
+    <div class="onibus-animado">🚌</div>
+</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

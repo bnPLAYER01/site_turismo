@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Guia Turístico do ES{% endblock %}
+
+{% block content %}
+<section class="hero-site">
+    <div class="hero-overlay">
+        <h2>Descubra as Belezas do Nosso Espírito Santo</h2>
+        <p>De praias cristalinas à pedras gigantes, entre o amor por museus ou cachoeiras está o ES esperando por você!.</p>
+        <a href="/turisticos" class="btn-destaque">Explorar Agora</a>
+    </div>
+</section>
+
+<section class="home-categorias">
+    <h3>Busque por interesse</h3>
+    <div class="categorias-flex">
+        <a href="{{ url_for('turisticos') }}" class="cat-box">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <span>Praia</span>
+        </a>
+        
+        <a href="{{ url_for('turisticos') }}" class="cat-box">
+            <i class="fa-solid fa-landmark-dome"></i>
+            <span>Cultura</span>
+        </a>
+        
+        <a href="{{ url_for('turisticos') }}" class="cat-box">
+            <i class="fa-solid fa-mountain-sun"></i>
+            <span>Natureza</span>
+        </a>
+        
+        <a href="{{ url_for('onibus') }}" class="cat-box">
+            <i class="fa-solid fa-bus-simple"></i>
+            <span>Transporte</span>
+        </a>
+        
+        <a href="{{ url_for('empreendedores') }}" class="cat-box">
+            <i class="fa-solid fa-shop"></i>
+            <span>Serviços</span>
+        </a>
+    </div>
+</section>
+
+
+<style>
+    * {
+       margin: 0;
+       padding: 0;
+       box-sizing: 0;
+    }
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../static/img/es.jpg');
+}
+</style>
+
+
+
+<section class="sobre-es" style="text-align: center; padding: 40px; background-color: #f9f9f9; font-family: fantasy;">
+    <p>Todas as informações sobre turismo capixaba com meios de transporte e mapa integrado, aproveite sua viagem conosco!🎼</p>
+</section>
+{% endblock %}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ ponto.nome }} - Explore ES</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="detalhes-page">
+
+    <header class="ponto-header" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('/static/img/{{ ponto.imagem }}');">
+        <div class="header-content">
+            <a href="/mapa" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</a>
+            <h1>{{ ponto.nome }}</h1>
+            <p class="tag-categoria">
+                <i class="fas fa-map-marker-alt"></i> 
+                {{ ponto.endereco.split(',')[0] if ponto.endereco else 'Espírito Santo' }}
+            </p>
+        </div>
+    </header>
+
+    <main class="container-detalhes">
+        <div class="grid-detalhes">
+            
+            <section class="info-principal">
+                <h2>Sobre o local</h2>
+                <p class="descricao-texto">{{ ponto.descricao }}</p>
+                
+                <div class="cards-extras">
+                    <div class="card-info">
+                        <i class="fas fa-location-dot"></i>
+                        <span><strong>Endereço Completo:</strong><br>{{ ponto.endereco }}</span>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="sidebar-acoes">
+                <div class="action-box">
+                    <h3>Gostou deste local?</h3>
+                    <p>Veja a rota no GPS ou localize no nosso mapa.</p>
+                    
+                    <a href="https://www.google.com/maps?q={{ ponto.latitude }},{{ ponto.longitude }}" 
+                       target="_blank" class="btn-rota">
+                        <i class="fas fa-route"></i> Abrir no Google Maps
+                    </a>
+
+                    <a href="/mapa?lat={{ ponto.latitude }}&lon={{ ponto.longitude }}" class="btn-mapa-interno">
+                        <i class="fas fa-map"></i> Ver no Mapa do Site
+                    </a>
+                </div>
+            </aside>
+
+        </div>
+        
+        <div class="rating">
+ <input type="radio" id="star5" name="rating" value="5" />
+  <label class="star" for="star5" title="Excelente"></label>
+  <input type="radio" id="star4" name="rating" value="4" />
+  <label class="star" for="star4" title="Muito bom"></label>
+  <input type="radio" id="star3" name="rating" value="3" />
+  <label class="star" for="star3" title="Bom"></label>
+  <input type="radio" id="star2" name="rating" value="2" />
+  <label class="star" for="star2" title="Razoável"></label>
+  <input type="radio" id="star1" name="rating" value="1" />
+  <label class="star" for="star1" title="Ruim"></label>
+  </div>
+
+<textarea id="comentario" placeholder="O que achou do local?"></textarea>
+
+<button type="button" onclick="enviarAvaliacao()">Enviar Avaliação</button>
+    </main>
+<div class="secao-comentarios">
+    <h3>Avaliações dos Turistas</h3>
+
+    {% for c in comentarios %}
+    <div class="card-comentario">
+        <strong>{{ c['nome'] }}</strong> 
+        <span class="nota-estrelas">⭐ {{ c['nota'] }}/5</span>
+        <p>{{ c['comentario'] }}</p>
+        <small>Publicado em: {{ c['data_publicacao'] }}</small>
+    </div>
+    {% else %}
+    <p>Ainda não há avaliações para este local. Seja o primeiro!</p>
+    {% endfor %}
+</div>
+
+<div class="secao-comentarios">
+  <h3>Avaliações dos Turistas</h3>
+  <div id="comentarios-lista">
+    {% if comentarios %}
+
+    {% for c in comentarios %}
+        <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 8px; background: #fff;">
+          <strong>{{ c.nome }}</strong>
+          <span style="color: #f1c40f; margin-left: 10px;">
+            {{ "⭐" * c.nota }}
+          </span>
+          <p style="margin: 10px 0;">{{ c.comentario }}</p>
+          <small style="color: #888;">Postado em: {{ c.data_publicacao }}</small>
+        </div>
+      {% endfor %}
+
+      {% else %}
+      <p>Ainda não há avaliações para este local. Seja o primeiro!</p>
+    {% endif %}
+  </div>
+</div>
+</body>
+</html>

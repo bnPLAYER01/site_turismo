@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Pontos Turísticos - ES{% endblock %}
+
+{% block content %}
+<div class="secao-listagem">
+    <h2 style="text-align: center; margin-top: 20px; margin-bottom: 20px;">Explorar Pontos Turísticos</h2>
+    
+    <div class="container grid">
+        {% for ponto in pontos %}
+            <div class="card">
+                <div class="card-header">
+                    <img src="{{ url_for('static', filename='img/' + ponto.imagem) }}" alt="{{ ponto.nome }}" class="img-ponto">
+                </div>
+
+                <div class="card-body">
+                    <h3>{{ ponto.nome }}</h3>
+                    <p>{{ ponto.descricao }}</p>
+                    <p class="endereco">
+                        📍 <strong>{{ ponto.endereco }}</strong>
+                    </p>
+                    <a href="/detalhes/{{ ponto.id }}" class="btn">
+                        Ver detalhes
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
