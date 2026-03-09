@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Leaflet CSS opcional -->
+    {% block head_extra %}{% endblock %}
+</head>
+<body>
+
+<header>
+    <div class="Container Flex">
+        <div id="logo">
+            <img src="{{url_for('static', filename='img/favicon.png')}}" class="favicon">
+        </div>
+        <h1>Guia Capixaba</h1>
+    </div>
+   
+    
+<nav>
+    <a href="/">
+        
+        <span>Início</span>
+    </a>
+
+    <a href="/mapa">
+        
+        <span>Mapa</span>
+    </a>
+
+    <a href="/turisticos">
+      
+        <span>Turísticos</span>
+    </a>
+
+    <a href="/onibus">
+     
+        <span>Ônibus</span>
+    </a>
+
+    <a href="/empreendedores">
+        
+        <span>Lojas</span>
+    </a>
+</nav>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>Projeto Integrador – Turismo ES</p>
+</footer>
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
