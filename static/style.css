@@ -1,0 +1,466 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BODY */
+body {
+    background: #f2f5f9;
+    color: #333;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+        min-height: 100vh;
+        /* Caminho corrigido para o Flask */
+        background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("{{ url_for('static', filename='img/es.jpg') }}");
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+}
+
+/* HEADER estilo app */
+header {
+    background: linear-gradient(to right, #023e8a, #0077b6);
+    padding: 25px 15px;
+    text-align: center;
+    color: white;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+/* NAV estilo app */
+nav {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 12px;
+    border-radius: 20px;
+    margin: 15px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #0077b6;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+
+.Container.Flex {
+    display: flex;
+    justify-content:flex-start; 
+    align-items:flex-start;     
+    padding: 20px;    
+    
+}
+
+#logo img {
+    max-width: 150px;       
+    height: auto;            
+    display: block;
+    max-width: 100%;
+  
+}
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 15px;
+    width: 100%;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+}
+
+
+.img-ponto {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+}
+
+
+/* CARD estilo app */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+   transition: 0.3s ease;
+}
+
+.card:hover {
+   transform: translateY(-5px);
+}
+
+/* BOTÃO */
+.btn {
+    display: block;
+   width: 100%;
+   margin-top: 12px;
+   padding: 10px;
+   background: #0096c7;
+   border-radius: 25px;
+   text-align: center;
+   font-weight: bold;
+   color: white;
+   text-decoration: none;
+}
+
+.hero-site {
+    height: 60vh; /* Ocupa 60% da tela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    }
+
+.hero-overlay {
+    background: rgba(255, 255, 255, 0.1); /* Quase transparente */
+    backdrop-filter: blur(12px); /* O "pulo do gato": borra o fundo */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordinha de cristal */
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.btn-destaque {
+   display: inline-block;
+   margin-top: 15px;
+   padding: 12px 25px;
+   background: #27ae60;   color: white;
+   text-decoration: none;
+   border-radius: 30px;
+   font-weight: bold;
+}
+
+/* Categorias na Home */
+.categorias-flex {
+   display: flex;
+   justify-content: center;
+   gap: 20px;
+   padding: 40px 10px;
+   flex-wrap: wrap;
+}
+
+.home-categorias {
+    background: white;
+    /* Reduzido o padding para ocupar menos espaço vertical e horizontal */
+    padding: 25px 15px; 
+    
+    /* Mantém o efeito de subir na imagem hero */
+    margin: -60px auto 30px auto; 
+    
+    position: relative;
+    z-index: 10;
+    
+    /* Aumentamos um pouco a largura máxima para os ícones não ficarem apertados */
+    max-width: 1100px;
+    width: 92%; /* Garante respiro lateral em telas pequenas */
+    
+    border-radius: 15px;
+    /* Sombra mais elegante e menos "suja" */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.home-categorias h3 {
+    margin-bottom: 20px;
+    color: #023e8a;
+    font-size: 1.3rem; /* Tamanho levemente menor para harmonia */
+    font-weight: 700;
+}
+
+/* Ajuste opcional: se você usa uma lista ou flexbox dentro, 
+   adicione isso para os itens ficarem bem distribuídos */
+.home-categorias .categorias-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+.cat-box i {
+    font-size: 2rem;
+    color: #023e8a; 
+    background: white;
+    width: 70px;  
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; 
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease;
+}
+
+
+.cat-box:hover i {
+    background: #023e8a;
+    color: white;
+    transform: translateY(-5px); 
+}
+
+.cat-box span {
+   font-weight: 600;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: #555;
+   
+}
+
+/* Efeito ao passar o mouse */
+.cat-box:hover i {
+   color: #e67e22; 
+   transition: transform 0.2s;
+}
+
+.cat-box {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   /* ... manter o restante do seu estilo de card ... */
+}
+
+.ponto-header {
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 40px;
+    color: white;
+}
+
+.header-content h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.container-detalhes {
+    max-width: 1100px;
+    margin: -50px auto 50px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 20;
+}
+
+.grid-detalhes {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.descricao-texto {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.action-box {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 5px solid #023e8a;
+}
+
+.btn-rota, .btn-mapa-interno {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-rota { background: #023e8a; color: white; }
+.btn-mapa-interno { border: 2px solid #023e8a; color: #023e8a; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav a span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.es{
+    background-image: url('../css/img/es.jpg');
+    background-size: cover;
+}
+
+.estrada {
+    width: 100%;
+    overflow: hidden; /* Esconde o ônibus quando ele sai da tela */
+    background: #f0f0f0; /* Cor da "pista" */
+    padding: 10px 0;
+    border-bottom: 2px dashed #ccc; /* Linha da estrada */
+    position: relative;
+}
+
+.onibus-animado {
+    font-size: 2rem;
+    display: inline-block;
+    position: relative;
+    /* Nome da animação | Duração | Curva de tempo | Repetição */
+    animation: moverOnibus 8s linear infinite;
+}
+
+@keyframes moverOnibus {
+    0% {
+        transform: translateX(-100px); /* Começa fora da tela à esquerda */
+    }
+    100% {
+        transform: translateX(100vw); /* Vai até o final da tela à direita */
+    }
+}
+
+@keyframes moverOnibus {
+    0% {
+        transform: translateX(-100px) translateY(0);
+    }
+    25% {
+        transform: translateX(25vw) translateY(-3px); /* Sobe um pouquinho */
+    }
+    50% {
+        transform: translateX(50vw) translateY(0);
+    }
+    75% {
+        transform: translateX(75vw) translateY(-3px);
+    }
+    100% {
+        transform: translateX(100vw) translateY(0);
+    }
+}
+
+.soldado {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse; /* Inverte para a lógica do seletor ~ funcionar */
+  justify-content: center;
+  gap: 5px;
+}
+
+.rating input {
+  display: none; /* Esconde os botões de rádio padrão */
+}
+
+.rating label {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background-color: #ccc; /* Cor da estrela vazia */
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>');
+  mask-repeat: no-repeat;
+  transition: all 0.2s ease;
+}
+
+/* Quando o mouse passa por cima ou a estrela está marcada */
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input:checked ~ label {
+  background-color: #ffca08; /* Cor amarela ouro */
+  transform: scale(1.1);
+  
+}
+
+/* Efeito de clique rápido */
+.rating label:active {
+  transform: scale(0.9);
+}
+
+.card-comentario {
+    background: #f9f9f9;
+    border-left: 5px solid #007bff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+.nota-estrelas {
+    color: #f1c40f;
+    font-weight: bold;
+    float: right;
+}
+
+/* MAPA */
+#map {
+   width: 100%;
+   height: 65vh;
+   min-height: 300px;
+   border-radius: 25px;
+   overflow: hidden;
+   margin-bottom: 30px;
+}
+
+
+
+/* FOOTER */
+footer {
+   margin-top: 40px;
+   background: #023e8a;
+   color: white;   text-align: center;
+   padding: 15px;
+}
+
+@media (min-width: 768px) {
+   .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-detalhes { grid-template-columns: 1fr; }
+    .ponto-header { height: 300px; }
+}
